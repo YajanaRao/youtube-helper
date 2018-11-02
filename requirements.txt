@@ -1,3 +1,4 @@
 Flask==0.10.1
 pafy==0.5.0
 youtube_dl
+Flask-SQLAlchemy==2.3.2
