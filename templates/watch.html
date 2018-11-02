@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+{% block content %}
+    <script type="text/javascript">
+        function valRed() {
+            var val = document.getElementById('slug').value;
+            document.val.action = "/watch/" + val;
+        }
+    </script>
+    <div class="container">
+        {% if title %}
+        <div class="main">
+            <div class="video_main">
+                <div class="vm_title">
+                    <h1 class="vid_tit" style="color:#fff;">VIDEO</h1>
+                </div>
+                <div class="video_player">
+                    <iframe width="560" height="380" src="https://www.youtube.com/embed/{{ yid }}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="video_info_main">
+                <div class="vi_title">
+                    <h1 class="vid_tit" style="color:#fff;">VIDEO INFORMATION</h1>
+                </div>
+                <div class="vin_main">
+                    <div class="video_info_area">
+                        <strong>Play:</strong> 
+                        <audio controls>
+                              <source src="{{song.url}}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <br /> 
+                        <hr class="hr_dot"/>
+                        <strong>Tİtle:</strong> {{ song.title }}
+                        <hr class="hr_dot" />
+                        <strong>Description:</strong> {{ song.desc }}
+                        <hr class="hr_dot" />
+                        <strong>Uploaded By:</strong> {{ song.author }}
+                        <hr class="hr_dot" />
+                         <form action='/v/' method="get" name="val">
+                            <input id="slug" type="hidden"  autocomplete="off" value="{{ yid }}" />
+                            <input type="submit" value="Download Video" onclick="valRed();">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="container">
+                <div class="dialog">
+                <p>
+    			</p>
+    			<p>
+    			</p>
+                    {{ er_str }}
+                 <p>
+    			</p>
+    			<p>
+    			</p>
+                </div>
+            </div>
+            {% endif %}
+            
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<section class="hero is-primary">
+    <div class="hero-body">
+        <p class="title">
+            Youtude video and audio player
+        </p>
+        <p class="subtitle">
+            Everything you need to <strong>create a access from</strong>  Youtube
+        </p>
+    </div>
+</section>
+
+    <script type="text/javascript">
+        function valRed() {
+            var val = document.getElementById('slug').value;
+            document.val.action = "/v/" + val;
+        }
+
+        function addVidio() {
+            var val = document.getElementById('slug').value;
+            document.val.action = "/add/" + val;
+        }
+    </script>
+    <div class="card" style="padding:10px;">
+        <div class="container is-centered">
+        <h1 class="has-text-centered">Youtube ID</h1>
+        <p></p>
+        <p></p>
+            <form action='/watch/' method="get" name="val">
+                <div class="field">
+                    <div class="control">
+                        <input id="slug" class="input" type="text" placeholder="Youtube ID: tkQL6c9ECCQ">
+                    </div>
+                    <p class="help">Egg: tkQL6c9ECCQ</p>
+                </div>
+                <div class="field">
+                    <div class="field is-grouped">
+                        <p class="control">
+                            <input type="submit" class="button is-primary" value="Download Video" onclick="valRed();">
+                        </p>
+                        <p class="control">
+                            <input type="submit" class="button is-light" value="Add Video" onclick="addVidio();">
+                        </p>
+                    </div>
+                    
+                </div>
+            </form>
+            <p></p>
+        <p></p>
+        </div>
+    </div>
+
+
+{% endblock %}
